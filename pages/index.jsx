@@ -9,7 +9,16 @@ export default function Home() {
       </Head>
       <main className="container home">
         <nav className="flex row center v">
+          <i className="large color-pink fa-solid fa-code logo" />
           <Link href="/">Home</Link>
+          <Link href="/">Sandbox</Link>
+          <Link href="/">Plugins</Link>
+          <Link href="/">Other</Link>
+          <Link href="https://github.com/dezlenko">
+            <a className="github" target="_blank">
+              <i className="large fa-brands fa-github" />
+            </a>
+          </Link>
         </nav>
         <div className="hero">
           <h1 className="large">
