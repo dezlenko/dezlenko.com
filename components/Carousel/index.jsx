@@ -61,7 +61,7 @@ export default function Carousel() {
     reversedArray.every((item, i) => {
       const scrollPos = carouselWrapperRef.current.scrollLeft
 
-      if (i === reversedArray.length - 1) {
+      if (reversedArray[reversedArray.length - 1].left > 0) {
         changeScrollPos(0)
 
         return false
@@ -91,6 +91,10 @@ export default function Carousel() {
         ref={carouselWrapperRef}
         onScroll={handleScroll}
       >
+        <div className="carousel-item"></div>
+        <div className="carousel-item"></div>
+        <div className="carousel-item"></div>
+        <div className="carousel-item"></div>
         <div className="carousel-item"></div>
         <div className="carousel-item"></div>
         <div className="carousel-item"></div>
