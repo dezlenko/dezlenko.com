@@ -1,32 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background-color: $color-dark;
-  background-image: radial-gradient(
-      circle 800px at 70% 200px,
-      rgba($color-cyan, 10%),
-      $transparent
-    ),
-    radial-gradient(
-      circle 600px at calc(100% - 300px) 300px,
-      rgba($color-pink, 20%),
-      $transparent
-    ),
-    radial-gradient(
-      circle 800px at right center,
-      rgba($color-cyan, 10%),
-      $transparent
-    ),
-    radial-gradient(
-      circle 800px at right bottom,
-      rgba($color-blue, 10%),
-      $transparent
-    ),
-    radial-gradient(
-      circle 800px at calc(50% - 600px) calc(100% - 100px),
-      rgba($color-pink, 10%),
-      $transparent
-    );
-  background-size: cover;
+  background-image: $background-radial-gradient;
+  background-size: 100vw;
+  background-position: center;
   background-repeat: no-repeat;
-  min-height: 2000px;
+  min-height: 3000px;
 }

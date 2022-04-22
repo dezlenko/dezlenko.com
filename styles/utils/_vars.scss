@@ -2,8 +2,37 @@ $color-blue: #bcece0;
 $color-cyan: #36eee0;
 $color-pink: #f652a0;
 $color-dark: #21253c;
-$transparent: rgba(0, 0, 0, 0);
+$color-transparent: rgba(0, 0, 0, 0);
 
 $font-header: ff-real-headline-pro, Helvetica, Arial, sans-serif;
 $font-body: ff-real, Helvetica, Arial, sans-serif;
 $font-body-alt: proxima-nova, Helvetica, Arial, sans-serif;
+
+$background-radial-gradient: radial-gradient(
+    circle 52vw at 0 -30vw,
+    rgba($color-cyan, 20%),
+    $color-transparent
+  ),
+  radial-gradient(
+    circle 32vw at 80vw 10vw,
+    rgba($color-pink, 20%),
+    $color-transparent
+  ),
+  radial-gradient(
+    circle 45vw at 16vw 52vw,
+    rgba($color-blue, 4%),
+    $color-transparent
+  ),
+  radial-gradient(
+    circle 50vw at 120vw 80vw,
+    rgba($color-cyan, 8%),
+    $color-transparent
+  ),
+  radial-gradient(
+    circle 50vw at 0 120vw,
+    rgba($color-pink, 7%),
+    $color-transparent
+  );
+
+$layout-width: 1024px;
+$layout-padding: 20px;
