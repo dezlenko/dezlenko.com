@@ -1,0 +1,65 @@
+.carousel {
+  $carousel-item-margin: 15px;
+
+  position: relative;
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+
+  .carousel-wrapper {
+    display: flex;
+    overflow-x: scroll;
+    padding-right: 60px;
+    padding-left: calc(
+      max(0px, calc(50% - calc($layout-width / 2))) + $layout-padding
+    );
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 100%;
+    color: white;
+    background: $color-dark;
+    box-shadow: 0 0 15px rgba($color-pink, 50%);
+    transition: box-shadow 600ms ease, transform 1000ms ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-55%);
+      box-shadow: 0 0 15px rgba($color-cyan, 50%);
+    }
+
+    &:focus {
+      transform: translateY(-55%);
+      box-shadow: 0 0 15px rgba($color-cyan, 50%);
+    }
+
+    &.carousel-prev {
+      left: 20px;
+    }
+
+    &.carousel-next {
+      right: 20px;
+    }
+  }
+
+  .carousel-item {
+    flex-shrink: 0;
+    width: 300px;
+    height: 200px;
+    border-radius: 15px;
+    margin-right: $carousel-item-margin;
+    background: rgba($color-pink, 5%);
+    border: 1px solid rgba($color-pink, 20%);
+  }
+}
