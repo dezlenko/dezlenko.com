@@ -1,11 +1,14 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
-export default function Carousel() {
+export default function Carousel({ items }) {
   const carouselWrapperRef = useRef()
 
-  const handleScroll = e => {
-    const scrollPos = carouselWrapperRef.current.scrollLeft
-  }
+  useEffect(() => {
+    if (carouselWrapperRef) {
+      const rightPos = carouselWrapperRef.current.getBoundingClientRect().right
+      console.log(rightPos)
+    }
+  }, [carouselWrapperRef])
 
   const getScreenWidthAndElementInfo = () => {
     let margin = 0
@@ -23,29 +26,22 @@ export default function Carousel() {
     return { screenWidth: window.innerWidth, margin, carouselItemsCoords }
   }
 
-  const changeScrollPos = pos => {
+  const changeScrollPosition = position => {
     carouselWrapperRef.current.scroll({
-      left: pos,
+      left: position,
       behavior: 'smooth',
     })
   }
 
   const handleNextClick = () => {
-    const { screenWidth, margin, carouselItemsCoords } =
-      getScreenWidthAndElementInfo()
+    const { screenWidth, margin, carouselItemsCoords } = getScreenWidthAndElementInfo()
 
     carouselItemsCoords.every((item, i) => {
       const scrollDiff = item.right - screenWidth
       const scrollPos = carouselWrapperRef.current.scrollLeft
 
-      if (i === carouselItemsCoords.length - 1) {
-        changeScrollPos(carouselWrapperRef.current.clientWidth)
-
-        return false
-      }
-
       if (scrollDiff > 0) {
-        changeScrollPos(scrollPos + scrollDiff + margin + 60)
+        changeScrollPosition(scrollPos + scrollDiff + margin + 60)
 
         return false
       }
@@ -62,13 +58,13 @@ export default function Carousel() {
       const scrollPos = carouselWrapperRef.current.scrollLeft
 
       if (reversedArray[reversedArray.length - 1].left > 0) {
-        changeScrollPos(0)
+        changeScrollPosition(0)
 
         return false
       }
 
       if (item.left < 0) {
-        changeScrollPos(scrollPos + item.left - margin - 60)
+        changeScrollPosition(scrollPos + item.left - margin - 60)
 
         return false
       }
@@ -77,38 +73,19 @@ export default function Carousel() {
     })
   }
 
+  const renderedCarouselItems = items.map(item => {
+    return <div className="carousel-item">{item}</div>
+  })
+
   return (
     <div className="carousel">
-      <button
-        className="carousel-button carousel-prev"
-        onClick={handlePrevClick}
-        tabIndex="1"
-      >
+      <button className="carousel-button carousel-prev" onClick={handlePrevClick} tabIndex="1">
         <i className="fa-solid fa-angle-left" />
       </button>
-      <div
-        className="carousel-wrapper"
-        ref={carouselWrapperRef}
-        onScroll={handleScroll}
-      >
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
-        <div className="carousel-item"></div>
+      <div className="carousel-wrapper" ref={carouselWrapperRef}>
+        {renderedCarouselItems}
       </div>
-      <button
-        className="carousel-button carousel-next"
-        onClick={handleNextClick}
-        tabIndex="2"
-      >
+      <button className="carousel-button carousel-next" onClick={handleNextClick} tabIndex="2">
         <i className="fa-solid fa-angle-right" />
       </button>
     </div>
