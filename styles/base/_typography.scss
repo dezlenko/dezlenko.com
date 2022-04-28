@@ -13,6 +13,7 @@ h4,
 h5,
 h6 {
   font-family: $font-header;
+  margin: 0 0 40px;
 }
 
 p,
@@ -32,24 +33,39 @@ span {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 68px;
   font-weight: 700;
   letter-spacing: -1px;
-  color: white;
+  color: $text-color-title;
 
-  &.large {
-    font-size: 68px;
+  @include max-breakpoint($breakpoint-mobile) {
+    font-size: 50px;
+  }
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: $text-color-title;
+
+  @include max-breakpoint($breakpoint-mobile) {
+    font-size: 40px;
   }
 }
 
 p {
   font-size: 15px;
   line-height: 1.25;
-  color: white;
+  color: $text-color-body;
+  -webkit-line-clamp: 2;
 
   &.large {
     font-size: 25px;
     letter-spacing: -1px;
+
+    @include max-breakpoint($breakpoint-mobile) {
+      font-size: 22px;
+    }
   }
 
   a {
@@ -79,6 +95,10 @@ i {
 
   &.large {
     font-size: 32px;
+
+    @include max-breakpoint(576px) {
+      font-size: 40px;
+    }
   }
 }
 
@@ -86,14 +106,14 @@ strong {
   font-weight: 700;
 }
 
-.color-pink {
+.text-color-pink {
   color: $color-pink;
 }
 
-.color-cyan {
+.text-color-cyan {
   color: $color-cyan;
 }
 
-.color-blue {
+.text-color-blue {
   color: $color-blue;
 }

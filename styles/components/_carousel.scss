@@ -1,17 +1,17 @@
 .carousel {
-  $carousel-item-margin: 15px;
+  $carousel-item-margin: 20px;
 
   position: relative;
   width: 100vw;
   margin: 0 calc(50% - 50vw);
 
   .carousel-wrapper {
+    position: relative;
+    z-index: 1;
     display: flex;
     overflow-x: scroll;
     padding-right: 60px;
-    padding-left: calc(
-      max(0px, calc(50% - calc($layout-width / 2))) + $layout-padding
-    );
+    padding-left: calc(max(0px, calc(50% - calc($layout-width / 2))) + $layout-padding);
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -22,6 +22,7 @@
 
   .carousel-button {
     position: absolute;
+    z-index: 2;
     top: 50%;
     transform: translateY(-50%);
     width: 40px;
@@ -55,11 +56,6 @@
 
   .carousel-item {
     flex-shrink: 0;
-    width: 300px;
-    height: 200px;
-    border-radius: 15px;
     margin-right: $carousel-item-margin;
-    background: rgba($color-pink, 5%);
-    border: 1px solid rgba($color-pink, 20%);
   }
 }

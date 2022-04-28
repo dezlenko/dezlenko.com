@@ -1,0 +1,47 @@
+.project-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border-radius: 10px;
+  background: rgba(lighten($color-dark, 15%), 7.5%);
+  transition: border-color 500ms ease, transform 1000ms ease, background 1000ms ease;
+  letter-spacing: normal;
+  margin: 2px 0 0;
+
+  h3 {
+    font-size: 24px;
+    margin: 0;
+    padding: 30px 20px 20px;
+  }
+
+  p {
+    min-height: 160px;
+    padding: 20px;
+    background: rgba(lighten($color-dark, 15%), 20%);
+  }
+
+  span {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: $font-header;
+    font-size: 14px;
+    transition: color 500ms ease, letter-spacing 500ms ease;
+
+    i {
+      margin-left: 10px;
+    }
+  }
+
+  &:hover {
+    color: white;
+    transform: translateY(-2px);
+    background: rgba(lighten($color-dark, 15%), 15%);
+
+    span {
+      color: $color-cyan;
+      letter-spacing: 0.25px;
+    }
+  }
+}
